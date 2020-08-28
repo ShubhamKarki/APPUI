@@ -29,7 +29,7 @@ class RoundedIconButton extends StatelessWidget {
             children: [
               Icon(
                 iconData,
-                size: size ?? 18,
+                size: size ?? 20,
                 color: color ?? Colors.black,
               ),
               if (imageUrl != null)
