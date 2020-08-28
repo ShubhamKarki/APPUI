@@ -25,6 +25,8 @@ dependencies:
     sdk: flutter
   readmore: ^1.0.0
   dotted_border: ^1.0.6
+  flutter_svg: ^0.18.1
+
 
 
   # The following adds the Cupertino Icons font to your application.
