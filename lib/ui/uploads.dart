@@ -6,6 +6,35 @@ class UploadScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: Container(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(25, 5, 25, 20),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(8.0),
+            child: Container(
+              height: 45,
+              width: MediaQuery.of(context).size.width,
+              child: Material(
+                borderRadius: BorderRadius.circular(8.0),
+                child: MaterialButton(
+                  minWidth: 200,
+                  onPressed: () {},
+                  color: Colors.blue,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'UPLOAD VIDEO',
+                        style: TextStyle(color: Colors.white, fontSize: 13),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
       body: SafeArea(
         child: Container(
           child: Column(
@@ -20,7 +49,18 @@ class UploadScreen extends StatelessWidget {
                         _horzontalSizedHeight,
                         VideoUploadSection(),
                         _horzontalSizedHeight,
-                        InputField()
+                        InputField(
+                          title: 'Name',
+                          maxlength: 100,
+                          label: 'eg : How to create a drone',
+                        ),
+                        InputField(
+                          title: 'Description',
+                          maxlength: 2000,
+                          label: 'Write video description...',
+                          maxLines: 5,
+                        ),
+                        AllowComments(),
                       ],
                     ),
                   ),
@@ -38,17 +78,100 @@ class UploadScreen extends StatelessWidget {
   );
 }
 
-class InputField extends StatelessWidget {
+class AllowComments extends StatefulWidget {
+  @override
+  _AllowCommentsState createState() => _AllowCommentsState();
+}
+
+class _AllowCommentsState extends State<AllowComments> {
+  bool isSelected = false;
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      style: TextStyle(),
-      decoration: InputDecoration(
-        hintText: "Search videos...",
-        hintStyle: TextStyle(),
-        border: InputBorder.none,
-        contentPadding: EdgeInsets.symmetric(vertical: 15),
-      ),
+    return Row(
+      children: [
+        Checkbox(
+            value: isSelected,
+            onChanged: (value) {
+              setState(() {
+                isSelected = value;
+              });
+            }),
+        Text(
+          'Allow comments',
+          style: TextStyle(fontSize: 13.5, fontWeight: FontWeight.w600),
+        )
+      ],
+    );
+  }
+}
+
+class InputField extends StatefulWidget {
+  final title;
+  final label;
+  final int maxlength;
+  final int maxLines;
+
+  const InputField(
+      {Key key,
+      this.title,
+      this.label,
+      this.maxlength = 100,
+      this.maxLines = 1})
+      : super(key: key);
+
+  @override
+  _InputFieldState createState() => _InputFieldState();
+}
+
+class _InputFieldState extends State<InputField> {
+  String input = '';
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 5),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                widget.title ?? '',
+                style: TextStyle(fontSize: 13, color: Colors.black45),
+              ),
+              Text(
+                '${input.length}/${widget.maxlength}',
+                style: TextStyle(fontSize: 13, color: Colors.black45),
+              )
+            ],
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+              border: Border.all(width: .5, color: Colors.black26),
+              borderRadius: BorderRadius.circular(10)),
+          child: TextField(
+            style: TextStyle(),
+            onChanged: (value) {
+              setState(() {
+                input = value;
+              });
+            },
+            maxLines: widget.maxLines,
+            decoration: InputDecoration(
+              hintText: widget.label ?? '',
+              hintStyle: TextStyle(
+                fontSize: 13,
+              ),
+              border: InputBorder.none,
+              contentPadding:
+                  EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 15,
+        ),
+      ],
     );
   }
 }
