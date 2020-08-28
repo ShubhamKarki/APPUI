@@ -224,3 +224,10 @@ class Header extends StatelessWidget {
     );
   }
 }
+
+class SearchBox extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}

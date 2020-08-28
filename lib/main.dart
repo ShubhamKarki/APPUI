@@ -2,6 +2,8 @@ import 'package:app/ui/directMessage.dart';
 import 'package:app/ui/settings.dart';
 import 'package:app/ui/uploads.dart';
 import 'package:app/ui/videoStreaming.dart';
+import 'package:app/ui/homepage.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: DirectMessage(),
+      home: HomePageScreen(),
     );
   }
 }
@@ -29,4 +31,4 @@ class MyApp extends StatelessWidget {
 // UploadScreen()
 // VideoStreaming()
 //  DirectMessage()
-//
+//  HomePageScreen()
