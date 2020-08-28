@@ -32,6 +32,7 @@ class HomePageScreen extends StatelessWidget {
                       title:
                           'How to create an Anime Character in Adobe Photoshop',
                     ),
+                    _horzontalSizedHeight,
                   ],
                 ),
               ),
