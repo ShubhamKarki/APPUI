@@ -1,4 +1,5 @@
 import 'package:app/ui/directMessage.dart';
+import 'package:app/ui/liveStream.dart';
 import 'package:app/ui/settings.dart';
 import 'package:app/ui/uploads.dart';
 import 'package:app/ui/videoStreaming.dart';
@@ -20,13 +21,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomePageScreen(),
+      home: LiveStreamScreen(),
     );
   }
 }
 
 // Screens
-
+//  LiveStreamScreen()
 // SettingsScreen()
 // UploadScreen()
 // VideoStreaming()
