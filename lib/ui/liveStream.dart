@@ -23,9 +23,6 @@ List<CommentModel> commentList = [
 ];
 
 class LiveStreamScreen extends StatelessWidget {
-  final double _sigmaX = 0.0; // from 0-10
-  final double _sigmaY = 0.0; // from 0-10
-  final double _opacity = 0.1; // from 0-1.0
   @override
   Widget build(BuildContext context) {
     return Scaffold(
