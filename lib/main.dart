@@ -1,5 +1,6 @@
 import 'package:app/ui/directMessage.dart';
 import 'package:app/ui/liveStream.dart';
+import 'package:app/ui/messages.dart';
 import 'package:app/ui/settings.dart';
 import 'package:app/ui/signIn.dart';
 import 'package:app/ui/uploads.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SignInScreen(),
+      home: Messages(),
     );
   }
 }
@@ -35,3 +36,4 @@ class MyApp extends StatelessWidget {
 //  DirectMessage()
 //  HomePageScreen()
 //  SignInScreen()
+//  Messages()
